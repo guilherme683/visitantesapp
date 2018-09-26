@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="visitantes">
+            <h2><span jhiTranslate="visitantesappApp.visitantes.detail.title">Visitantes</span> {{visitantes.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="visitantesappApp.visitantes.dataVisita">Data Visita</span></dt>
+                <dd>
+                    <span>{{visitantes.dataVisita}}</span>
+                </dd>
+                <dt><span jhiTranslate="visitantesappApp.visitantes.nomeVisitante">Nome Visitante</span></dt>
+                <dd>
+                    <span>{{visitantes.nomeVisitante}}</span>
+                </dd>
+                <dt><span jhiTranslate="visitantesappApp.visitantes.local">Local</span></dt>
+                <dd>
+                    <span>{{visitantes.local}}</span>
+                </dd>
+                <dt><span jhiTranslate="visitantesappApp.visitantes.acompanhadoPor">Acompanhado Por</span></dt>
+                <dd>
+                    <span>{{visitantes.acompanhadoPor}}</span>
+                </dd>
+                <dt><span jhiTranslate="visitantesappApp.visitantes.estado">Estado</span></dt>
+                <dd>
+                    <span>{{visitantes.estado}}</span>
+                </dd>
+                <dt><span jhiTranslate="visitantesappApp.visitantes.statusAtendimento">Status Atendimento</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'visitantesappApp.Status.' + visitantes.statusAtendimento}}">{{visitantes.statusAtendimento}}</span>
+                </dd>
+                <dt><span jhiTranslate="visitantesappApp.visitantes.cadastradoPor">Cadastrado Por</span></dt>
+                <dd>
+                    <span>{{visitantes.cadastradoPor}}</span>
+                </dd>
+                <dt><span jhiTranslate="visitantesappApp.visitantes.observacao">Observacao</span></dt>
+                <dd>
+                    <span>{{visitantes.observacao}}</span>
+                </dd>
+                <dt><span jhiTranslate="visitantesappApp.visitantes.acessores">Acessores</span></dt>
+                <dd>
+                    <div *ngIf="visitantes.acessores">
+                        <a [routerLink]="['/acessores', visitantes.acessores?.id, 'view']">{{visitantes.acessores?.nomeAssessor}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="visitantesappApp.visitantes.municipios">Municipios</span></dt>
+                <dd>
+                    <div *ngIf="visitantes.municipios">
+                        <a [routerLink]="['/municipios', visitantes.municipios?.id, 'view']">{{visitantes.municipios?.nomeMunicipio}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="visitantesappApp.visitantes.cargo">Cargo</span></dt>
+                <dd>
+                    <div *ngIf="visitantes.cargo">
+                        <a [routerLink]="['/cargo', visitantes.cargo?.id, 'view']">{{visitantes.cargo?.nomeCargo}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="visitantesappApp.visitantes.partido">Partido</span></dt>
+                <dd>
+                    <div *ngIf="visitantes.partido">
+                        <a [routerLink]="['/partido', visitantes.partido?.id, 'view']">{{visitantes.partido?.siglaPartido}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/visitantes', visitantes.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

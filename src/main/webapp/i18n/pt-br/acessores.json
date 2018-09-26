@@ -1,0 +1,22 @@
+
+{
+    "visitantesappApp": {
+        "acessores" : {
+            "home": {
+                "title": "Acessores",
+                "createLabel": "Criar novo Acessores",
+                "createOrEditLabel": "Criar ou editar Acessores"
+            },
+            "created": "Um novo Acessores foi criado com o identificador {{ param }}",
+            "updated": "Um Acessores foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Acessores foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Acessores {{ id }}?"
+            },
+            "detail": {
+                "title": "Acessores"
+            },
+            "nomeAssessor": "Nome Assessor"
+        }
+    }
+}

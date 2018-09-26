@@ -1,0 +1,33 @@
+
+{
+    "visitantesappApp": {
+        "visitantes" : {
+            "home": {
+                "title": "Visitantes",
+                "createLabel": "Create a new Visitantes",
+                "createOrEditLabel": "Create or edit a Visitantes"
+            },
+            "created": "A new Visitantes is created with identifier {{ param }}",
+            "updated": "A Visitantes is updated with identifier {{ param }}",
+            "deleted": "A Visitantes is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Visitantes {{ id }}?"
+            },
+            "detail": {
+                "title": "Visitantes"
+            },
+            "dataVisita": "Data Visita",
+            "nomeVisitante": "Nome Visitante",
+            "local": "Local",
+            "acompanhadoPor": "Acompanhado Por",
+            "estado": "Estado",
+            "statusAtendimento": "Status Atendimento",
+            "cadastradoPor": "Cadastrado Por",
+            "observacao": "Observacao",
+            "acessores": "Acessores",
+            "municipios": "Municipios",
+            "cargo": "Cargo",
+            "partido": "Partido"
+        }
+    }
+}

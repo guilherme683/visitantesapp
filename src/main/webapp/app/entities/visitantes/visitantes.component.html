@@ -1,0 +1,100 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="visitantesappApp.visitantes.home.title">Visitantes</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-visitantes" [routerLink]="['/visitantes/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="visitantesappApp.visitantes.home.createLabel">
+            Create new Visitantes
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="visitantes">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dataVisita"><span jhiTranslate="visitantesappApp.visitantes.dataVisita">Data Visita</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nomeVisitante"><span jhiTranslate="visitantesappApp.visitantes.nomeVisitante">Nome Visitante</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="local"><span jhiTranslate="visitantesappApp.visitantes.local">Local</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="acompanhadoPor"><span jhiTranslate="visitantesappApp.visitantes.acompanhadoPor">Acompanhado Por</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="estado"><span jhiTranslate="visitantesappApp.visitantes.estado">Estado</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="statusAtendimento"><span jhiTranslate="visitantesappApp.visitantes.statusAtendimento">Status Atendimento</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="cadastradoPor"><span jhiTranslate="visitantesappApp.visitantes.cadastradoPor">Cadastrado Por</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="observacao"><span jhiTranslate="visitantesappApp.visitantes.observacao">Observacao</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="acessores.nomeAssessor"><span jhiTranslate="visitantesappApp.visitantes.acessores">Acessores</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="municipios.nomeMunicipio"><span jhiTranslate="visitantesappApp.visitantes.municipios">Municipios</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="cargo.nomeCargo"><span jhiTranslate="visitantesappApp.visitantes.cargo">Cargo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="partido.siglaPartido"><span jhiTranslate="visitantesappApp.visitantes.partido">Partido</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let visitantes of visitantes ;trackBy: trackId">
+                <td><a [routerLink]="['/visitantes', visitantes.id, 'view' ]">{{visitantes.id}}</a></td>
+                <td>{{visitantes.dataVisita | date:'medium'}}</td>
+                <td>{{visitantes.nomeVisitante}}</td>
+                <td>{{visitantes.local}}</td>
+                <td>{{visitantes.acompanhadoPor}}</td>
+                <td>{{visitantes.estado}}</td>
+                <td jhiTranslate="{{'visitantesappApp.Status.' + visitantes.statusAtendimento}}">{{visitantes.statusAtendimento}}</td>
+                <td>{{visitantes.cadastradoPor}}</td>
+                <td>{{visitantes.observacao}}</td>
+                <td>
+                    <div *ngIf="visitantes.acessores">
+                        <a [routerLink]="['../acessores', visitantes.acessores?.id, 'view' ]" >{{visitantes.acessores?.nomeAssessor}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="visitantes.municipios">
+                        <a [routerLink]="['../municipios', visitantes.municipios?.id, 'view' ]" >{{visitantes.municipios?.nomeMunicipio}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="visitantes.cargo">
+                        <a [routerLink]="['../cargo', visitantes.cargo?.id, 'view' ]" >{{visitantes.cargo?.nomeCargo}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="visitantes.partido">
+                        <a [routerLink]="['../partido', visitantes.partido?.id, 'view' ]" >{{visitantes.partido?.siglaPartido}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/visitantes', visitantes.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/visitantes', visitantes.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'visitantes/'+ visitantes.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="visitantes && visitantes.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

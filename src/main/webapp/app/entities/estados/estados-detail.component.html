@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="estados">
+            <h2><span jhiTranslate="visitantesappApp.estados.detail.title">Estados</span> {{estados.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="visitantesappApp.estados.codEstadosIbge">Cod Estados Ibge</span></dt>
+                <dd>
+                    <span>{{estados.codEstadosIbge}}</span>
+                </dd>
+                <dt><span jhiTranslate="visitantesappApp.estados.nomeEstado">Nome Estado</span></dt>
+                <dd>
+                    <span>{{estados.nomeEstado}}</span>
+                </dd>
+                <dt><span jhiTranslate="visitantesappApp.estados.siglaEstado">Sigla Estado</span></dt>
+                <dd>
+                    <span>{{estados.siglaEstado}}</span>
+                </dd>
+                <dt><span jhiTranslate="visitantesappApp.estados.codRegioes">Cod Regioes</span></dt>
+                <dd>
+                    <span>{{estados.codRegioes}}</span>
+                </dd>
+                <dt><span jhiTranslate="visitantesappApp.estados.regioes">Regioes</span></dt>
+                <dd>
+                    <div *ngIf="estados.regioes">
+                        <a [routerLink]="['/regioes', estados.regioes?.id, 'view']">{{estados.regioes?.nomeRegiao}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/estados', estados.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

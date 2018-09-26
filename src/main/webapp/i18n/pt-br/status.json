@@ -1,0 +1,10 @@
+{
+    "visitantesappApp": {
+        "Status" : {
+            "null": "",
+            "AGUARDANDO": "AGUARDANDO",
+            "ATENDIDO": "ATENDIDO",
+            "NAO_ATENDIDO": "NAO_ATENDIDO"
+        }
+    }
+}

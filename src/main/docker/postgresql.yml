@@ -1,0 +1,11 @@
+version: '2'
+services:
+    visitantesapp-postgresql:
+        image: postgres:10.4
+        # volumes:
+        #     - ~/volumes/jhipster/visitantesapp/postgresql/:/var/lib/postgresql/data/
+        environment:
+            - POSTGRES_USER=visitantesapp
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5432:5432

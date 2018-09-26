@@ -1,0 +1,66 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="visitantesappApp.estados.home.title">Estados</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-estados" [routerLink]="['/estados/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="visitantesappApp.estados.home.createLabel">
+            Create new Estados
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="estados">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="visitantesappApp.estados.codEstadosIbge">Cod Estados Ibge</span></th>
+            <th><span jhiTranslate="visitantesappApp.estados.nomeEstado">Nome Estado</span></th>
+            <th><span jhiTranslate="visitantesappApp.estados.siglaEstado">Sigla Estado</span></th>
+            <th><span jhiTranslate="visitantesappApp.estados.codRegioes">Cod Regioes</span></th>
+            <th><span jhiTranslate="visitantesappApp.estados.regioes">Regioes</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let estados of estados ;trackBy: trackId">
+                <td><a [routerLink]="['/estados', estados.id, 'view' ]">{{estados.id}}</a></td>
+                <td>{{estados.codEstadosIbge}}</td>
+                <td>{{estados.nomeEstado}}</td>
+                <td>{{estados.siglaEstado}}</td>
+                <td>{{estados.codRegioes}}</td>
+                <td>
+                    <div *ngIf="estados.regioes">
+                        <a [routerLink]="['../regioes', estados.regioes?.id, 'view' ]" >{{estados.regioes?.nomeRegiao}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/estados', estados.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/estados', estados.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'estados/'+ estados.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

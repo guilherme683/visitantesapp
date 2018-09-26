@@ -1,0 +1,277 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+body {
+  margin: 0;
+  font-family: Roboto, sans-serif;
+}
+
+mat-card {
+  max-width: 80%;
+  margin: 2em auto;
+  text-align: center;
+}
+
+mat-toolbar-row {
+  justify-content: space-between;
+}
+
+.done {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: white;
+}
+
+.full-width {
+  width: 90%;
+}
+
+.full-width-button-login{
+ width: 100%;
+ height: auto;
+}
+
+.mat-dialog-container {
+  padding: 0 !important;
+
+}
+
+.mat-dialog-actions{
+  margin-bottom: 0px !important;
+  height: 2.9rem;
+}
+
+.icon-material-padding-bottom{
+  padding-bottom: 5rem;
+}
+
+.padding-20 {
+  padding: 20px;
+}
+
+.padding-10 {
+  padding: 10px;
+}
+
+.margin-top-login{
+  margin-top:1rem;
+
+}
+
+.branco-gelo {
+  color: whitesmoke;
+}
+
+.backcolor-indigo-a100 {
+  background-color: #1A237E;
+}
+
+.scroll-off {
+  overflow: hidden !important;
+}
+
+.burguer-icon {
+  position: absolute;
+  margin: 10px;
+  font-size: 30px;
+  margin-top: 18px;
+}
+
+.mat-pseudo-checkbox {
+  display: none !important;
+}
+
+.inner {
+  padding: 5px;
+  -webkit-box-shadow: 0 2px 3px rgba(0,0,0,.55);
+  -moz-box-shadow: 0 2px 3px rgba(0,0,0,.55);
+}
+
+.title-login{
+  margin-top: 1.5rem;
+  margin-left: 10.0rem;
+}
+
+.alert-font{
+  font-size: 12px;
+}
+
+.alert-link-senha{
+  margin-top: 0.3rem;
+  font-size: 12px;
+  padding: 0px !important;
+}
+
+/* .logo-img2 {
+  display: inline-block;
+  vertical-align: middle;
+  background: url("../../content/images/icons8-trabalho-permanente-100.png") no-repeat center center;
+  background-size: contain;
+  margin-top: 0.5rem;
+  margin-left: -1rem;
+} */
+
+.logo-img2 {
+            height: 100px;
+            width: 100px;
+            display: inline-block;
+            vertical-align: middle;
+            background: url("../../content/images/icons8-trabalho-permanente-100.png");
+            background-size: contain;
+            display: inline-block;
+        }
+
+
+.close-button{
+  margin-top: -2rem;
+  margin-right: -1rem;
+}
+
+#visivel{
+  display:none;
+}
+
+
+.mat-checkbox{
+  margin-right: 0.3rem;
+}
+
+.mat-fab {
+  position: absolute !important;
+  right: 20px;
+  top: 10px;
+}
+
+.full-width-search {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.cdk-overlay-container {
+  z-index:1127;
+}
+
+.full-width-form{
+ width: 100%;
+}
+
+.ng-invalid:not(form), .ng-valid[required], .ng-valid.required {
+  border-left: none !important;
+}
+ 
+
+.table-title {
+  font-size: 16px !important;
+  font-weight: bold !important;
+}
+
+.button-actions {
+  text-align: center !important;
+}
+
+td.mat-cell:last-child, td.mat-footer-cell:last-child, th.mat-header-cell:last-child {
+  padding-right: 0px !important;
+}
+
+.head-table{
+  background: #3077B4;
+  color: #fff;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.jh-card{
+    padding:0% !important;
+}
+
+/* Loading para a tabela do Material Angular */
+
+/* Structure */
+.example-container {
+  position: relative;
+}
+
+.example-table-container {
+  position: relative;
+  max-height: 400px;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+}
+
+.example-loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 56px;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-rate-limit-reached {
+  color: #980000;
+  max-width: 360px;
+  text-align: center;
+}
+
+/* Column Widths */
+.mat-column-number,
+.mat-column-state {
+  max-width: 64px;
+}
+
+.mat-column-created {
+  max-width: 124px;
+}
+
+.producao{
+  color: red;
+}
+
+.homologacao{
+  color: green;
+}
+
+.replicacao{
+  color: blue;
+}
+
+.etl{
+  color: brown;
+}
+
+@media screen and (max-width: 992px) {
+  .mat-fab {
+    right: 0px;
+    top: 0px;
+  }
+}
+
+@media screen and (max-device-width: 640px) {
+
+   .logo-img2{
+    height: 50px;
+    width: 50px;
+   }
+
+   .title-login{
+    margin-top: 0.4rem;
+    margin-left: 3.5rem;
+   }
+}
+
+
+

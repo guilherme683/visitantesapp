@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-municipios-heading" jhiTranslate="visitantesappApp.municipios.home.createOrEditLabel">Create or edit a Municipios</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!municipios.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="municipios.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="visitantesappApp.municipios.codMunicipiosIbge" for="field_codMunicipiosIbge">Cod Municipios Ibge</label>
+                    <input type="number" class="form-control" name="codMunicipiosIbge" id="field_codMunicipiosIbge"
+                        [(ngModel)]="municipios.codMunicipiosIbge" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="visitantesappApp.municipios.nomeMunicipio" for="field_nomeMunicipio">Nome Municipio</label>
+                    <input type="text" class="form-control" name="nomeMunicipio" id="field_nomeMunicipio"
+                        [(ngModel)]="municipios.nomeMunicipio" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="visitantesappApp.municipios.codEstadosIbge" for="field_codEstadosIbge">Cod Estados Ibge</label>
+                    <input type="number" class="form-control" name="codEstadosIbge" id="field_codEstadosIbge"
+                        [(ngModel)]="municipios.codEstadosIbge" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="visitantesappApp.municipios.estados" for="field_estados">Estados</label>
+                    <select class="form-control" id="field_estados" name="estados" [(ngModel)]="municipios.estados" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="estadosOption.id === municipios.estados?.id ? municipios.estados : estadosOption" *ngFor="let estadosOption of estados; trackBy: trackEstadosById">{{estadosOption.nomeEstado}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

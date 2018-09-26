@@ -1,0 +1,22 @@
+
+{
+    "visitantesappApp": {
+        "acessores" : {
+            "home": {
+                "title": "Acessores",
+                "createLabel": "Create a new Acessores",
+                "createOrEditLabel": "Create or edit a Acessores"
+            },
+            "created": "A new Acessores is created with identifier {{ param }}",
+            "updated": "A Acessores is updated with identifier {{ param }}",
+            "deleted": "A Acessores is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Acessores {{ id }}?"
+            },
+            "detail": {
+                "title": "Acessores"
+            },
+            "nomeAssessor": "Nome Assessor"
+        }
+    }
+}

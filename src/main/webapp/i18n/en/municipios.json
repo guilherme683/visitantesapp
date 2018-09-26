@@ -1,0 +1,25 @@
+
+{
+    "visitantesappApp": {
+        "municipios" : {
+            "home": {
+                "title": "Municipios",
+                "createLabel": "Create a new Municipios",
+                "createOrEditLabel": "Create or edit a Municipios"
+            },
+            "created": "A new Municipios is created with identifier {{ param }}",
+            "updated": "A Municipios is updated with identifier {{ param }}",
+            "deleted": "A Municipios is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Municipios {{ id }}?"
+            },
+            "detail": {
+                "title": "Municipios"
+            },
+            "codMunicipiosIbge": "Cod Municipios Ibge",
+            "nomeMunicipio": "Nome Municipio",
+            "codEstadosIbge": "Cod Estados Ibge",
+            "estados": "Estados"
+        }
+    }
+}

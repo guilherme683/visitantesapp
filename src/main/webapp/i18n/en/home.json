@@ -1,0 +1,22 @@
+{
+    "home": {
+        "title": "VisitantesApp!",
+        "subtitle": "Visitor Control System of the Minister's Office",
+        "logged": {
+            "message": "You are logged in as user \"{{username}}\"."
+        },
+
+        "logged2": "Successful login!",
+        "logout_message": "Please log in to access the System.",
+        "question": "If you have any question on JHipster:",
+        "link": {
+            "homepage": "JHipster homepage",
+            "stackoverflow": "JHipster on Stack Overflow",
+            "bugtracker": "JHipster bug tracker",
+            "chat": "JHipster public chat room",
+            "follow": "follow @java_hipster on Twitter"
+        },
+        "like": "If you like JHipster, don't forget to give us a star on",
+        "github": "GitHub"
+    }
+}

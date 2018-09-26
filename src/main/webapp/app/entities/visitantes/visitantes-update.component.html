@@ -1,0 +1,97 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-visitantes-heading" jhiTranslate="visitantesappApp.visitantes.home.createOrEditLabel">Create or edit a Visitantes</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!visitantes.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="visitantes.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="visitantesappApp.visitantes.dataVisita" for="field_dataVisita">Data Visita</label>
+                    <div class="d-flex">
+                        <input id="field_dataVisita" type="datetime-local" class="form-control" name="dataVisita" [(ngModel)]="dataVisita"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="visitantesappApp.visitantes.nomeVisitante" for="field_nomeVisitante">Nome Visitante</label>
+                    <input type="text" class="form-control" name="nomeVisitante" id="field_nomeVisitante"
+                        [(ngModel)]="visitantes.nomeVisitante" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="visitantesappApp.visitantes.local" for="field_local">Local</label>
+                    <input type="text" class="form-control" name="local" id="field_local"
+                        [(ngModel)]="visitantes.local" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="visitantesappApp.visitantes.acompanhadoPor" for="field_acompanhadoPor">Acompanhado Por</label>
+                    <input type="text" class="form-control" name="acompanhadoPor" id="field_acompanhadoPor"
+                        [(ngModel)]="visitantes.acompanhadoPor" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="visitantesappApp.visitantes.estado" for="field_estado">Estado</label>
+                    <input type="text" class="form-control" name="estado" id="field_estado"
+                        [(ngModel)]="visitantes.estado" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="visitantesappApp.visitantes.statusAtendimento" for="field_statusAtendimento">Status Atendimento</label>
+                    <select class="form-control" name="statusAtendimento" [(ngModel)]="visitantes.statusAtendimento" id="field_statusAtendimento" >
+                        <option value="AGUARDANDO">{{'visitantesappApp.Status.AGUARDANDO' | translate}}</option>
+                        <option value="ATENDIDO">{{'visitantesappApp.Status.ATENDIDO' | translate}}</option>
+                        <option value="NAO_ATENDIDO">{{'visitantesappApp.Status.NAO_ATENDIDO' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="visitantesappApp.visitantes.cadastradoPor" for="field_cadastradoPor">Cadastrado Por</label>
+                    <input type="text" class="form-control" name="cadastradoPor" id="field_cadastradoPor"
+                        [(ngModel)]="visitantes.cadastradoPor" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="visitantesappApp.visitantes.observacao" for="field_observacao">Observacao</label>
+                    <input type="text" class="form-control" name="observacao" id="field_observacao"
+                        [(ngModel)]="visitantes.observacao" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="visitantesappApp.visitantes.acessores" for="field_acessores">Acessores</label>
+                    <select class="form-control" id="field_acessores" name="acessores" [(ngModel)]="visitantes.acessores" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="acessoresOption.id === visitantes.acessores?.id ? visitantes.acessores : acessoresOption" *ngFor="let acessoresOption of acessores; trackBy: trackAcessoresById">{{acessoresOption.nomeAssessor}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="visitantesappApp.visitantes.municipios" for="field_municipios">Municipios</label>
+                    <select class="form-control" id="field_municipios" name="municipios" [(ngModel)]="visitantes.municipios" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="municipiosOption.id === visitantes.municipios?.id ? visitantes.municipios : municipiosOption" *ngFor="let municipiosOption of municipios; trackBy: trackMunicipiosById">{{municipiosOption.nomeMunicipio}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="visitantesappApp.visitantes.cargo" for="field_cargo">Cargo</label>
+                    <select class="form-control" id="field_cargo" name="cargo" [(ngModel)]="visitantes.cargo" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="cargoOption.id === visitantes.cargo?.id ? visitantes.cargo : cargoOption" *ngFor="let cargoOption of cargos; trackBy: trackCargoById">{{cargoOption.nomeCargo}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="visitantesappApp.visitantes.partido" for="field_partido">Partido</label>
+                    <select class="form-control" id="field_partido" name="partido" [(ngModel)]="visitantes.partido" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="partidoOption.id === visitantes.partido?.id ? visitantes.partido : partidoOption" *ngFor="let partidoOption of partidos; trackBy: trackPartidoById">{{partidoOption.siglaPartido}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+
+{
+    "visitantesappApp": {
+        "estados" : {
+            "home": {
+                "title": "Estados",
+                "createLabel": "Create a new Estados",
+                "createOrEditLabel": "Create or edit a Estados"
+            },
+            "created": "A new Estados is created with identifier {{ param }}",
+            "updated": "A Estados is updated with identifier {{ param }}",
+            "deleted": "A Estados is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Estados {{ id }}?"
+            },
+            "detail": {
+                "title": "Estados"
+            },
+            "codEstadosIbge": "Cod Estados Ibge",
+            "nomeEstado": "Nome Estado",
+            "siglaEstado": "Sigla Estado",
+            "codRegioes": "Cod Regioes",
+            "regioes": "Regioes"
+        }
+    }
+}

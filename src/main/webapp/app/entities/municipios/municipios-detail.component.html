@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="municipios">
+            <h2><span jhiTranslate="visitantesappApp.municipios.detail.title">Municipios</span> {{municipios.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="visitantesappApp.municipios.codMunicipiosIbge">Cod Municipios Ibge</span></dt>
+                <dd>
+                    <span>{{municipios.codMunicipiosIbge}}</span>
+                </dd>
+                <dt><span jhiTranslate="visitantesappApp.municipios.nomeMunicipio">Nome Municipio</span></dt>
+                <dd>
+                    <span>{{municipios.nomeMunicipio}}</span>
+                </dd>
+                <dt><span jhiTranslate="visitantesappApp.municipios.codEstadosIbge">Cod Estados Ibge</span></dt>
+                <dd>
+                    <span>{{municipios.codEstadosIbge}}</span>
+                </dd>
+                <dt><span jhiTranslate="visitantesappApp.municipios.estados">Estados</span></dt>
+                <dd>
+                    <div *ngIf="municipios.estados">
+                        <a [routerLink]="['/estados', municipios.estados?.id, 'view']">{{municipios.estados?.nomeEstado}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/municipios', municipios.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

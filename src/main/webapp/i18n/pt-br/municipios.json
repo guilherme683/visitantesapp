@@ -1,0 +1,25 @@
+
+{
+    "visitantesappApp": {
+        "municipios" : {
+            "home": {
+                "title": "Municipios",
+                "createLabel": "Criar novo Municipios",
+                "createOrEditLabel": "Criar ou editar Municipios"
+            },
+            "created": "Um novo Municipios foi criado com o identificador {{ param }}",
+            "updated": "Um Municipios foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Municipios foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Municipios {{ id }}?"
+            },
+            "detail": {
+                "title": "Municipios"
+            },
+            "codMunicipiosIbge": "Cod Municipios Ibge",
+            "nomeMunicipio": "Nome Municipio",
+            "codEstadosIbge": "Cod Estados Ibge",
+            "estados": "Estados"
+        }
+    }
+}

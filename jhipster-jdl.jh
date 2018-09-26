@@ -1,0 +1,81 @@
+
+entity Visitantes{
+	dataVisita Instant,
+    nomeVisitante String,
+    local String,
+    acompanhadoPor String,
+    estado String,
+    statusAtendimento Status,
+    cadastradoPor String,
+    observacao String 
+}
+
+entity Acessores{
+	nomeAssessor String
+}
+
+entity Cargo{
+	nomeCargo String,
+}
+
+entity Municipios{
+	codMunicipiosIbge Long,
+	nomeMunicipio String,
+    codEstadosIbge Long
+}
+
+entity Estados{
+	codEstadosIbge Long,
+    nomeEstado String,
+    siglaEstado String,
+    codRegioes Long
+}
+
+entity Regioes{
+	codRegioesIbge Long,
+    nomeRegiao String
+}
+
+entity Partido{
+	nomePartido String,
+    siglaPartido String
+}
+
+enum Status{
+	AGUARDANDO, ATENDIDO, NAO_ATENDIDO
+}
+
+relationship ManyToOne{
+	Visitantes{Acessores(nomeAssessor)} to Acessores
+}
+
+relationship ManyToOne{
+	Visitantes{Municipios(nomeMunicipio)} to Municipios
+}
+
+relationship ManyToOne{
+	Visitantes{Cargo(nomeCargo)} to Cargo
+}
+
+relationship ManyToOne{
+	Municipios{Estados(nomeEstado)} to Estados
+}
+
+relationship ManyToOne{
+	Estados{Regioes(nomeRegiao)} to Regioes
+}
+
+relationship ManyToOne {
+	Visitantes{Partido(siglaPartido)} to Partido
+}
+
+paginate Visitantes, Acessores, Cargo with pagination
+
+
+	
+
+
+
+
+
+

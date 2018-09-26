@@ -1,0 +1,23 @@
+
+{
+    "visitantesappApp": {
+        "regioes" : {
+            "home": {
+                "title": "Regioes",
+                "createLabel": "Criar novo Regioes",
+                "createOrEditLabel": "Criar ou editar Regioes"
+            },
+            "created": "Um novo Regioes foi criado com o identificador {{ param }}",
+            "updated": "Um Regioes foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Regioes foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Regioes {{ id }}?"
+            },
+            "detail": {
+                "title": "Regioes"
+            },
+            "codRegioesIbge": "Cod Regioes Ibge",
+            "nomeRegiao": "Nome Regiao"
+        }
+    }
+}
