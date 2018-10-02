@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { JhiLanguageService } from 'ng-jhipster';
 import { JhiLanguageHelper } from 'app/core';
 import { VisitantesappSharedModule } from 'app/shared';
+import { NgxSpinnerModule } from 'ngx-spinner';
 /* jhipster-needle-add-admin-module-import - JHipster will add admin modules imports here */
 
 import {
@@ -24,7 +25,8 @@ import {
 @NgModule({
     imports: [
         VisitantesappSharedModule,
-        RouterModule.forChild(adminState)
+        RouterModule.forChild(adminState),
+        NgxSpinnerModule
         /* jhipster-needle-add-admin-module - JHipster will add admin modules here */
     ],
     declarations: [

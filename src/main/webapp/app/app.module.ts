@@ -17,7 +17,15 @@ import { VisitantesappHomeModule } from './home/home.module';
 import { VisitantesappAccountModule } from './account/account.module';
 import { VisitantesappEntityModule } from './entities/entity.module';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
-import { JhiMainComponent, NavbarComponent, SidebarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
+import {
+    JhiMainComponent,
+    NavbarComponent,
+    SidebarComponent,
+    FooterComponent,
+    PageRibbonComponent,
+    ActiveMenuDirective,
+    ErrorComponent
+} from './layouts';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
@@ -32,6 +40,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
     imports: [
@@ -58,8 +67,17 @@ import { MatExpansionModule } from '@angular/material/expansion';
         MatInputModule,
         MatRadioModule,
         MatExpansionModule,
+        NgxSpinnerModule
     ],
-    declarations: [JhiMainComponent, NavbarComponent, SidebarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
+    declarations: [
+        JhiMainComponent,
+        NavbarComponent,
+        SidebarComponent,
+        ErrorComponent,
+        PageRibbonComponent,
+        ActiveMenuDirective,
+        FooterComponent
+    ],
     providers: [
         {
             provide: HTTP_INTERCEPTORS,

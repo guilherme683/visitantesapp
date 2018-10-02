@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Log } from './log.model';
 import { LogsService } from './logs.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
     selector: 'jhi-logs',
@@ -13,14 +14,18 @@ export class LogsComponent implements OnInit {
     orderProp: string;
     reverse: boolean;
 
-    constructor(private logsService: LogsService) {
+    constructor(private logsService: LogsService, private spinner: NgxSpinnerService) {
         this.filter = '';
         this.orderProp = 'name';
         this.reverse = false;
     }
 
     ngOnInit() {
+        this.spinner.show();
         this.logsService.findAll().subscribe(response => (this.loggers = response.body));
+        setTimeout(() => {
+            this.spinner.hide();
+        }, 3000);
     }
 
     changeLevel(name: string, level: string) {

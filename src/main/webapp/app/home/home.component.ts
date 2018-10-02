@@ -3,6 +3,7 @@ import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
 
 import { LoginModalService, Principal, Account } from 'app/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
     selector: 'jhi-home',
@@ -13,9 +14,15 @@ export class HomeComponent implements OnInit {
     account: Account;
     modalRef: NgbModalRef;
 
-    constructor(private principal: Principal, private loginModalService: LoginModalService, private eventManager: JhiEventManager) {}
+    constructor(
+        private principal: Principal,
+        private loginModalService: LoginModalService,
+        private eventManager: JhiEventManager,
+        private spinner: NgxSpinnerService
+    ) {}
 
     ngOnInit() {
+        this.spinner.show();
         this.principal.identity().then(account => {
             this.account = account;
         });
@@ -23,6 +30,9 @@ export class HomeComponent implements OnInit {
     }
 
     registerAuthenticationSuccess() {
+        setTimeout(() => {
+            this.spinner.hide();
+        }, 3000);
         this.eventManager.subscribe('authenticationSuccess', message => {
             this.principal.identity().then(account => {
                 this.account = account;

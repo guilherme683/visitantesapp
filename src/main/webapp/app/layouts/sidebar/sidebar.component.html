@@ -22,6 +22,14 @@
                     </ul>
                 </li>
             </mat-list> -->
+            <div class="bem-vindo-title-2 invisivel">
+                <span mat-menu-item  routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                    <i class="fas fa-user fa-icon-x" aria-hidden="true"></i>
+                    <span class="" *ngIf="account" jhiTranslate="home.logged.message" translateValues="{username: '{{account.login}}'}"> You are logged in as user "{{account.login}}". </span>
+                </span>
+            </div>
+
+
             <span mat-menu-item routerLink="user-management" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
                   (click)="sidenav.close()">
                 <i class="fas fa-home fa-icon-x" aria-hidden="true"></i>
@@ -41,12 +49,12 @@
                         </mat-panel-title>
                     </mat-expansion-panel-header>
                     <mat-selection-list>
-                        <mat-list-option *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                        <!-- <mat-list-option *jhiHasAnyAuthority="'ROLE_ADMIN'">
                             <span  routerLink="admin/user-management" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="menuconfiguracoes.close();sidenav.close()">
                                 <i class="fas fa-user-cog fa-icon-x"></i>
                                 <span jhiTranslate="global.menu.admin.userManagement" class="entidades">User management</span>
                             </span>
-                        </mat-list-option>
+                        </mat-list-option> -->
                         <mat-list-option *jhiHasAnyAuthority="'ROLE_ADMIN'">
                             <span  routerLink="admin/jhi-metrics" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="menuconfiguracoes.close();sidenav.close()">
                                 <i class="fas fa-tachometer-alt fa-icon-x"></i>
@@ -85,6 +93,37 @@
                         </mat-list-option>
                     </mat-selection-list>
             </mat-expansion-panel>
+        </mat-accordion>
+        <span mat-menu-item routerLink="admin/user-management" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="sidenav.close()" *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                <i class="fas fa-user-cog fa-icon-x" aria-hidden="true"></i>
+                <span jhiTranslate="global.menu.admin.userManagement" class="">User management</span>
+                <mat-list-option>Gerenciamento de Usuários</mat-list-option>
+        </span>
+        <span mat-menu-item routerLink="visitantes" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="sidenav.close()">
+                <i class="fas fa-id-card-alt fa-icon-x" aria-hidden="true"></i>
+                <span jhiTranslate="global.menu.entities.visitantes" class="">Visitantes</span>
+                <mat-list-option>Visitantes</mat-list-option>
+        </span>
+        <span mat-menu-item routerLink="acessores" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="sidenav.close()">
+                <i class="fas fa-user-tie fa-icon-x" aria-hidden="true"></i>
+                <span jhiTranslate="global.menu.entities.acessores" class="">Visitantes</span>
+                <mat-list-option>Acessores</mat-list-option>
+        </span>
+        <span mat-menu-item routerLink="cargo" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="sidenav.close()">
+                <i class="fas fa-user-graduate fa-icon-x" aria-hidden="true"></i>
+                <span jhiTranslate="global.menu.entities.cargo" class="">Cargo</span>
+                <mat-list-option>Cargos</mat-list-option>
+        </span>
+        <span mat-menu-item routerLink="partido" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="sidenav.close()">
+                <i class="fab fa-font-awesome-flag fa-icon-x" aria-hidden="true"></i>
+                <span jhiTranslate="global.menu.entities.partido" class="">Partido</span>
+                <mat-list-option>Partidos</mat-list-option>
+        </span>
             <!-- Fim do Menu Painel de Configurações -->
 
             <!-- Início do Menu Escolha da Linguagem -->
@@ -106,6 +145,41 @@
                 </mat-expansion-panel>
             </mat-accordion> -->
             <!-- Fim do Menu Escolha da Linguagem -->
+
+            <!--Início do Menu Painel de Configurações -->
+            <mat-accordion>
+            <mat-expansion-panel #menuentidades *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                             <i class="fas fa-map-marked-alt fa-icon-x" aria-hidden="true"></i>
+                            <span  class="entidades">
+                                Gerenciar Localidade
+                            </span>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <mat-selection-list>
+                        <mat-list-option *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                            <span  routerLink="municipios" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="menuentidades.close();sidenav.close()">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span jhiTranslate="global.menu.entities.municipios" class="entidades">Municipios</span>
+                            </span>
+                        </mat-list-option>
+                        <mat-list-option *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                            <span  routerLink="estados" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="menuentidades.close();sidenav.close()">
+                                <i class="fas fa-map-signs"></i>
+                                <span jhiTranslate="global.menu.entities.estados" class="entidades">Estados</span>
+                            </span>
+                        </mat-list-option>
+                        <mat-list-option *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                            <span  routerLink="regioes" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="menuentidades.close();sidenav.close()">
+                                <i class="fas fa-globe-americas"></i>
+                                <span jhiTranslate="global.menu.entities.regioes" class="entidades">Regioes</span>
+                            </span>
+                        </mat-list-option>
+                         
+                    </mat-selection-list>
+            </mat-expansion-panel>
+        </mat-accordion>
 
             <span mat-menu-item class="" (click)="logout();sidenav.close()" style="color: #FFFFFF; background: #B0C4DE;">
                  <i class="fa fa-sign-out fa-icon-x" aria-hidden="true"></i>
