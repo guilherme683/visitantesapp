@@ -192,7 +192,7 @@
 <nav>
     <mat-toolbar color="primary" [ngSwitch]="isAuthenticated()">
         <div class="jh-logo-container float-left">
-            <a class="navbar-brand logo float-left" routerLink="/" ((click)="sidenav.close()">
+            <a class="navbar-brand logo float-left" routerLink="/" (click)="sidenav.close()">
                 <span class="logo-img"></span>
                 <span class="navbar-title" jhiTranslate="global.title">VisitantesApp</span>
                 <span class="navbar-version" id="versao">{{version}}</span>

@@ -3,6 +3,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { JhiHealthService } from './health.service';
 import { JhiHealthModalComponent } from './health-modal.component';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
     selector: 'jhi-health',
@@ -12,10 +13,14 @@ export class JhiHealthCheckComponent implements OnInit {
     healthData: any;
     updatingHealth: boolean;
 
-    constructor(private modalService: NgbModal, private healthService: JhiHealthService) {}
+    constructor(private modalService: NgbModal, private healthService: JhiHealthService, private spinner: NgxSpinnerService) {}
 
     ngOnInit() {
+        this.spinner.show();
         this.refresh();
+        setTimeout(() => {
+            this.spinner.hide();
+        }, 3000);
     }
 
     baseName(name: string) {

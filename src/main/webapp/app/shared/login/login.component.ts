@@ -6,6 +6,7 @@ import { JhiEventManager } from 'ng-jhipster';
 import { LoginService } from 'app/core/login/login.service';
 import { StateStorageService } from 'app/core/auth/state-storage.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
     selector: 'jhi-login-modal',
@@ -28,7 +29,8 @@ export class JhiLoginModalComponent implements AfterViewInit {
         // public activeModal: NgbActiveModal,
         public dialog: MatDialog,
         public dialogRef: MatDialogRef<JhiLoginModalComponent>,
-        @Inject(MAT_DIALOG_DATA) public data: any
+        @Inject(MAT_DIALOG_DATA) public data: any,
+        private spinner: NgxSpinnerService
     ) {
         this.credentials = {};
     }
@@ -36,7 +38,6 @@ export class JhiLoginModalComponent implements AfterViewInit {
     ngAfterViewInit() {
         // Estava dando erro de rederer is null
         // setTimeout(() => this.renderer.invokeElementMethod(this.elementRef.nativeElement.querySelector('#username'), 'focus', []), 0);
-
     }
 
     cancel() {
@@ -50,6 +51,7 @@ export class JhiLoginModalComponent implements AfterViewInit {
     }
 
     login() {
+        this.spinner.show();
         this.loginService
             .login({
                 username: this.username,
@@ -61,6 +63,9 @@ export class JhiLoginModalComponent implements AfterViewInit {
                 // this.activeModal.dismiss('login success');
                 if (this.router.url === '/register' || /^\/activate\//.test(this.router.url) || /^\/reset\//.test(this.router.url)) {
                     this.router.navigate(['']);
+                    setTimeout(() => {
+                        this.spinner.hide();
+                    }, 3000);
                 }
 
                 this.eventManager.broadcast({
@@ -75,16 +80,24 @@ export class JhiLoginModalComponent implements AfterViewInit {
                     this.stateStorageService.storeUrl(null);
                     this.router.navigate([redirect]);
                 }
+                setTimeout(() => {
+                    this.spinner.hide();
+                }, 3000);
                 this.closeDialog();
             })
             .catch(() => {
                 this.authenticationError = true;
+                setTimeout(() => {
+                    this.spinner.hide();
+                }, 1000);
             });
     }
 
     public closeDialog() {
+        setTimeout(() => {
+            this.spinner.hide();
+        }, 1000);
         this.dialogRef.close();
-
     }
 
     register() {

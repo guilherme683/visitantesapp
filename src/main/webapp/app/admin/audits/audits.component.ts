@@ -7,6 +7,7 @@ import { JhiParseLinks, JhiAlertService } from 'ng-jhipster';
 import { ITEMS_PER_PAGE } from 'app/shared';
 import { Audit } from './audit.model';
 import { AuditsService } from './audits.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
     selector: 'jhi-audit',
@@ -32,7 +33,8 @@ export class AuditsComponent implements OnInit, OnDestroy {
         private parseLinks: JhiParseLinks,
         private activatedRoute: ActivatedRoute,
         private datePipe: DatePipe,
-        private router: Router
+        private router: Router,
+        private spinner: NgxSpinnerService
     ) {
         this.itemsPerPage = ITEMS_PER_PAGE;
         this.routeData = this.activatedRoute.data.subscribe(data => {
@@ -44,9 +46,13 @@ export class AuditsComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
+        this.spinner.show();
         this.today();
         this.previousMonth();
         this.loadAll();
+        setTimeout(() => {
+            this.spinner.hide();
+        }, 3000);
     }
 
     ngOnDestroy() {

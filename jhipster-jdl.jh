@@ -69,7 +69,7 @@ relationship ManyToOne {
 	Visitantes{Partido(siglaPartido)} to Partido
 }
 
-paginate Visitantes, Acessores, Cargo with pagination
+paginate Visitantes with pagination
 
 
 	
